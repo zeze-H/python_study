@@ -1,0 +1,46 @@
+# 网络爬虫方向
+# requests：简洁处理 HTTP 请求
+# scrapy：Web 获取框架，半成品爬虫
+
+# 数据分析方向
+# numpy：科学计算库
+# scipy：在 numpy 基础上增加了很多库函数
+# pandas：数据处理、数据分析
+
+# 文本处理分析
+# pdfminer：读取 PDF 数据
+# openpyxl：处理 Excel 表格
+# python-docx：处理 Word 文档
+# beautifulsoup4：解析和处理 HTML、XML
+
+# 数据可视化方向
+# matplotlib：二维图绘制
+# TVTK：三维可视化
+# mayavi：更方便的三维可视化
+
+# 用户图形界面方向
+# PyQt5：用户图形界面开发
+# wxPython：用户图形界面开发
+# PyGTK：用户图形界面开发
+
+# 机器学习方向
+# scikit-learn：机器学习
+# TensorFlow：人工智能
+# Theano：深度学习
+
+# Web 开发方向
+# Django：Web 框架
+# Pyramid：Web 框架
+# Flask：Web 框架
+
+# 游戏开发方向
+# Pygame：多媒体制作
+# Panda3D：3D 引擎
+# cocos2d：2D 引擎
+
+# 其他第三方库
+# PIL：图像处理
+# SymPy：数学计算
+# NLTK：自然语言处理
+# WeRoBot：微信机器人框架
+# MyQR：二维码生成
