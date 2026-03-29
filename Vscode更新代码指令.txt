@@ -1,68 +1,32 @@
-# ===============================
-# 1️⃣ 确保当前分支为 main
-# ===============================
-git branch -M main
-# 如果你的本地分支不是 main，会改名为 main，统一分支名
-
-# ===============================
-# 2️⃣ 添加远程仓库（只需执行一次）
-# ===============================
-# 添加 Gitee 远程
-git remote add gitee git@gitee.com:zeze-H/python_study.git
-# 如果没配置 SSH，可以改用 HTTPS：
-# git remote add gitee https://gitee.com/zeze-H/python_study.git
-
-# 添加 GitHub 远程（如果还没加）
-git remote add github git@github.com:zeze-H/python_study.git
-# 或 HTTPS：
-# git remote add github https://github.com/zeze-H/python_study.git
-
-# ===============================
-# 3️⃣ 查看远程仓库，确认添加成功
-# ===============================
-git remote -v
-# 输出示例：
-# gitee   git@gitee.com:zeze-H/python_study.git (fetch)
-# gitee   git@gitee.com:zeze-H/python_study.git (push)
-# github  git@github.com:zeze-H/python_study.git (fetch)
-# github  git@github.com:zeze-H/python_study.git (push)
-
-# ===============================
-# 4️⃣ 每次修改后的标准提交流程
-# ===============================
 git add .
-# 将所有修改加入暂存区
+
+# 把所有修改加入暂存区（准备提交）
+
 
 git commit -m "本次学习内容"
-# 提交，并写清楚本次修改内容
 
-# ===============================
-# 5️⃣ 推送到 Gitee（默认推送）
-# ===============================
-git push -u gitee main
-# 第一次使用 -u 建立跟踪关系，以后只需 git push 即可推送到 Gitee
+# 生成一次版本记录（写清楚你学了啥）
 
-# ===============================
-# 6️⃣ 推送到 GitHub（先拉取再推送，保证安全）
-# ===============================
-# 拉取 GitHub 最新提交并在本地重放你的提交
-git pull github main --rebase
 
-# 再推送到 GitHub
+git push
+
+# 推送到 Gitee（因为已经设为默认）
+
+
 git push github main
 
-# ===============================
-# 7️⃣ 查看当前状态（可选）
-# ===============================
+# 再手动推送到 GitHub（实现双平台同步）
+
+
+【四、查看状态（可选）】
+
 git status
+
 # 查看哪些文件被修改/未提交
 
-# ===============================
-# ⚠️ 如果 GitHub 提示冲突
-# ===============================
-# 出现冲突时，按提示修改冲突文件，然后：
-git add .
-git rebase --continue
-# 继续完成 rebase
-# 完成后再执行：
-git push github main
+【五、如果远程出错（备用）】
+
+git remote remove github
+
+# 删除 GitHub 远程
+
