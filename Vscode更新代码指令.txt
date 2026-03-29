@@ -1,0 +1,32 @@
+git add .
+
+# 把所有修改加入暂存区（准备提交）
+
+
+git commit -m "本次学习内容"
+
+# 生成一次版本记录（写清楚你学了啥）
+
+
+git push
+
+# 推送到 Gitee（因为已经设为默认）
+
+
+git push github main
+
+# 再手动推送到 GitHub（实现双平台同步）
+
+
+【四、查看状态（可选）】
+
+git status
+
+# 查看哪些文件被修改/未提交
+
+【五、如果远程出错（备用）】
+
+git remote remove github
+
+# 删除 GitHub 远程
+
