@@ -12,8 +12,8 @@ git push
 
 # 推送到 Gitee（因为已经设为默认）
 
-
-git push github main
+git pull github main --rebase  # 拉取远程最新提交，把你的提交放在后面
+git push github main           # 再推送就不会报错
 
 # 再手动推送到 GitHub（实现双平台同步）
 

@@ -285,3 +285,9 @@
 # prec=3
 # ty="g"
 # print(f"{3.1415:{fill}{align}{width}.{prec}{ty}}")
+
+import turtle as t
+t.setup(300,300,300,300)
+for i in range(4):
+    t.fd(100)
+    t.left(90)

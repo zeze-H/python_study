@@ -9,3 +9,4 @@ print(ls)
 for item in ls:
     # print(item[0] + ":" + str(item[1]))
     print("{}:{}".format(item[0], item[1]))
+    

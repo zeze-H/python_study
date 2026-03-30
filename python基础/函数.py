@@ -2,7 +2,7 @@
 # #创建函数
 # def myfunc():
 #     pass
-#
+
 # def myfunc2():
 #     for i in range(6):
 #         print("hello zeze")
@@ -204,25 +204,25 @@ python会根据legb的顺序依次查找变量名
 
 # def funA():
 #     x=880
-#在这里本质上funB是不能再次printx的，但是：
-'''因为内层函数用到了外层变量，所以 Python 不会销毁这些变量，而是把它们和内层函数一起保存起来。'''
+#     #在这里本质上funB是不能再次printx的，但是：
+#     '''因为内层函数用到了外层变量，所以 Python 不会销毁这些变量，而是把它们和内层函数一起保存起来。'''
 #     def funB():
 #         print(x)
 #     funB()
 # funA()
 
-# #不通过funA函数来调用funB
+# # 不通过funA函数来调用funB
 # def funA():
 #     x=880
 #     def funB():
 #         print(x)
 #     return funB
-# '''funB函数的引用'''
+# # '''funB函数的引用'''
 # print(funA())
-# #调用funB就可以如下写法：
+# # # #调用funB就可以如下写法：
 # funA()()
 # funny=funA()
-# #这样就可以使用funny来间接调用funb
+# # #这样就可以使用funny来间接调用funb
 # funny()
 '''本质上funA已经不具备funB了 但是却能够通过间接的方式用funny来呈现'''
 
@@ -265,16 +265,33 @@ python会根据legb的顺序依次查找变量名
 #     print("主人，我调用完函数啦，快夸夸我。")
 # report(myfunc)
 
+# import time
+# def time_master(func):
+#     print("开始运行程序")
+#     start=time.time()
+#     func()
+#     stop=time.time()
+#     print("结束程序运行...")
+#     print(f"一共耗费了{(stop-start):.2f}秒")
+# def myfunc():
+#     time.sleep(2)
+#     print("Hello zeze")
+# time_master(myfunc)
+
 import time
 def time_master(func):
-    print("开始运行程序")
-    start=time.time()
-    func()
-    stop=time.time()
-    print("结束程序运行...")
-    print(f"一共耗费了{(stop-start):.2f}秒")
+    def call_func():
+        print("开始运行程序")
+        start=time.time()
+        func()
+        stop=time.time()
+        print("结束程序运行...")
+        print(f"一共耗费了{(stop-start):.2f}秒")
+    return call_func
+
+@time_master
 def myfunc():
     time.sleep(2)
     print("Hello zeze")
-time_master(myfunc)
 
+myfunc()
