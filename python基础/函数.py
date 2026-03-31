@@ -278,20 +278,121 @@ python会根据legb的顺序依次查找变量名
 #     print("Hello zeze")
 # time_master(myfunc)
 
-import time
-def time_master(func):
-    def call_func():
-        print("开始运行程序")
-        start=time.time()
-        func()
-        stop=time.time()
-        print("结束程序运行...")
-        print(f"一共耗费了{(stop-start):.2f}秒")
-    return call_func
+# import time
+# def time_master(func):
+#     def call_func():
+#         print("开始运行程序")
+#         start=time.time()
+#         func()
+#         stop=time.time()
+#         print("结束程序运行...")
+#         print(f"一共耗费了{(stop-start):.2f}秒")
+#     return call_func
+# #语法糖:表示下面的myfunc()直接放进time_master
+# # 等价于:
+# '''
+# def myfunc():
+#     time.sleep(2)
+#     print("Hello zeze")
 
-@time_master
-def myfunc():
-    time.sleep(2)
-    print("Hello zeze")
+# myfunc = time_master(myfunc)
+# myfunc被替换了，被替换成了call_func,然后调用myfunc()=callfunc(原来的myfunc)
+# '''
+# @time_master
+# def myfunc():
+#     time.sleep(2)
+#     print("Hello zeze")
 
-myfunc()
+# myfunc()
+
+# # 一个函数多个装饰器：
+# def add(func):
+#     def inner():
+#         x=func()
+#         return x+1
+#     return inner
+# def cube(func):
+#     def inner():
+#         x=func()
+#         return x*x*x
+#     return inner
+# def square(func):
+#     def inner():
+#         x=func()
+#         return x*x
+#     return inner
+# @add
+# @cube
+# @square
+# def test():
+#     return(2)
+# print(test())
+# '''
+# 等价于：从内向外运行
+# def test():
+#     return 2
+
+# test = add(cube(square(test)))
+# '''
+
+
+# # 如何给装饰器传递参数
+# import time
+
+# def logger(msg):
+#     def time_master(func):
+#         def call_func():
+#             start=time.time()
+#             func()
+#             stop=time.time()
+#             print(f"[{msg}一共耗费了{(stop-start):.2f}]")
+#         return call_func
+#     return time_master
+
+# '''
+# 语法糖等价于：
+# funA = logger("A")(funA)
+# funB = logger("B")(funB)
+# '''
+# @logger("A")
+# def funA():
+#     time.sleep(1)
+#     print("正在调用funA...")
+# @logger("B")
+# def funB():
+#     time.sleep(1)
+#     print("正在调用funB...")
+# funA()
+# funB()
+
+#lambda表达式：lambda arg1,arg2,arg3,...,arg N:expression
+'''
+传统方式：
+def <lambda>(arg1,arg2,arg3,...,argN):
+    return expression
+'''
+def square(x):
+    return x*x
+print(square(3))
+#匿名函数
+squareY = lambda y:y*y
+print(squareY(3))
+#均为函数的引用
+print(square)
+print(squareY)
+
+
+#lambda函数可以放进列表
+y=[lambda x:x*x,2,3]
+print(y[0](y[1]))
+print(y[0](y[2]))
+
+mapped=map(lambda x : ord(x) + 10,"zeze6")
+print(list(mapped))
+#同样的函数普通写法：
+def boring(x):
+    return ord(x) + 10
+print(list(map(boring,"zeze6")))
+
+print(list(filter(lambda x:x%2,range(10))))
+
