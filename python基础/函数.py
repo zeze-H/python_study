@@ -365,34 +365,85 @@ python会根据legb的顺序依次查找变量名
 # funA()
 # funB()
 
-#lambda表达式：lambda arg1,arg2,arg3,...,arg N:expression
-'''
-传统方式：
-def <lambda>(arg1,arg2,arg3,...,argN):
-    return expression
-'''
-def square(x):
-    return x*x
-print(square(3))
-#匿名函数
-squareY = lambda y:y*y
-print(squareY(3))
-#均为函数的引用
-print(square)
-print(squareY)
+# #lambda表达式：lambda arg1,arg2,arg3,...,arg N:expression
+# '''
+# 传统方式：
+# def <lambda>(arg1,arg2,arg3,...,argN):
+#     return expression
+# '''
+# def square(x):
+#     return x*x
+# print(square(3))
+# #匿名函数
+# squareY = lambda y:y*y
+# print(squareY(3))
+# #均为函数的引用
+# print(square)
+# print(squareY)
 
 
-#lambda函数可以放进列表
-y=[lambda x:x*x,2,3]
-print(y[0](y[1]))
-print(y[0](y[2]))
+# #lambda函数可以放进列表
+# y=[lambda x:x*x,2,3]
+# print(y[0](y[1]))
+# print(y[0](y[2]))
 
-mapped=map(lambda x : ord(x) + 10,"zeze6")
-print(list(mapped))
-#同样的函数普通写法：
-def boring(x):
-    return ord(x) + 10
-print(list(map(boring,"zeze6")))
+# mapped=map(lambda x : ord(x) + 10,"zeze6")
+# print(list(mapped))
+# #同样的函数普通写法：
+# def boring(x):
+#     return ord(x) + 10
+# print(list(map(boring,"zeze6")))
 
-print(list(filter(lambda x:x%2,range(10))))
+# #filter 求出十以内的奇数
+# print(list(filter(lambda x:x%2,range(10))))
 
+
+# # #生成器，将函数中的return替换成yield
+# # def counter():
+# #     i = 0
+# #     while i <= 5:
+# #         yield i
+# #         i+=1
+# # print(counter())
+
+
+# # for i in counter():
+# #     print(i)
+
+
+# # c =  counter()
+# # print(c)
+# # print(next(c))#0
+# # print(next(c))#1
+# # print(next(c))#2
+# # print(next(c))#3
+# # print(next(c))#4
+# # print(next(c))#5
+# # #生成器每次调用一个结果 所以生成器无法使用下标索引
+
+
+# #生成器实现斐波那契数列
+
+# def fib():
+#     back1,back2=0,1
+#     while True:
+#         yield back1
+#         back1,back2=back2,back1+back2
+# f=fib()
+# print(next(f))
+# print(next(f))
+# print(next(f))
+# print(next(f))
+# print(next(f))
+# print(next(f))
+
+# #这个语句会无限生成斐波那契数列
+# # for i in (f):
+# #     print(i)
+
+# #生成器表达式：列表推导式会一下将所有的结果生成并放进列表，但是生成器表达式一次只生成一次结果
+# t=(i**2 for i in range(3))
+# print(t)
+# print(next(t))
+# print(next(t))
+# print(next(t))

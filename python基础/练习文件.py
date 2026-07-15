@@ -23,23 +23,46 @@
 
 
 
-##简易超市购物车小程序
-products=[("苹果",3),("橘子",4),("香蕉",5),("梨子",2)]
-for i in range(len(products)):
-    print(i,products[i][0],"价格：",products[i][1])
-cart=[]
-while True:
-    choice=int(input("请输入你想购买的商品序号购买（输入-1结账退出）"))
-    if choice == -1:
-        break
-    elif choice<0 or choice>=len(products) :
-        print("你所输入的商品序号不存在！请重新输入！")
-        continue
-    else:
-        cart.append(products[choice])
-print("————————————————————------结账清单------————————————————————")
-total_price=0
-for i in range(len(cart)):
-    total_price+=cart[i][1]
-print("您的购物车现在有",cart,"共消费",total_price,"元。")
+# ##简易超市购物车小程序
+# products=[("苹果",3),("橘子",4),("香蕉",5),("梨子",2)]
+# for i in range(len(products)):
+#     print(i,products[i][0],"价格：",products[i][1])
+# cart=[]
+# while True:
+#     choice=int(input("请输入你想购买的商品序号购买（输入-1结账退出）"))
+#     if choice == -1:
+#         break
+#     elif choice<0 or choice>=len(products) :
+#         print("你所输入的商品序号不存在！请重新输入！")
+#         continue
+#     else:
+#         cart.append(products[choice])
+# print("————————————————————------结账清单------————————————————————")
+# total_price=0
+# for i in range(len(cart)):
+#     total_price+=cart[i][1]
+# print("您的购物车现在有",cart,"共消费",total_price,"元。")
+
+
+
+# def make_multiplier(n):
+#     def inner(m):
+#         c=m*n
+#         return c
+#     return inner
+# f = make_multiplier(3)
+# print(f(5))
+
+def counter():
+    x=0
+    def inner():
+        x+=1
+        return x
+    return inner
+c=counter()
+c()
+c()
+c()
+
+
 
