@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-Command conda -ErrorAction SilentlyContinue; if \\(-not $?\\) { Test-Path \"$env:USERPROFILE\\\\Anaconda3\\\\Scripts\\\\conda.exe\"; Test-Path \"$env:USERPROFILE\\\\miniconda3\\\\Scripts\\\\conda.exe\"; Test-Path \"C:\\\\ProgramData\\\\Anaconda3\\\\Scripts\\\\conda.exe\" })",
+      "PowerShell(python --version 2>&1)",
+      "PowerShell(python3 --version 2>&1)",
+      "PowerShell(py --version 2>&1)",
+      "PowerShell($installerPath = \"D:\\\\Miniconda3-latest-Windows-x86_64.exe\"; Write-Host \"下载地址: https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe\"; Write-Host \"保存到: $installerPath\"; Invoke-WebRequest -Uri \"https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe\" -OutFile $installerPath -UseBasicParsing; if \\(Test-Path $installerPath\\) { $size = \\(Get-Item $installerPath\\).Length / 1MB; Write-Host \"下载完成，大小: $\\([math]::Round\\($size, 1\\)\\) MB\" } else { Write-Host \"下载失败\" })",
+      "Read(//d/Miniconda3/Scripts/**)",
+      "PowerShell(& \"D:\\\\Miniconda3\\\\Scripts\\\\conda.exe\" init powershell)",
+      "PowerShell(python --version)",
+      "PowerShell(& \"D:\\\\Miniconda3\\\\envs\\\\fast_api1\\\\python.exe\" -c \"import fastapi; print\\(f'FastAPI �汾: {fastapi.__version__}'\\); print\\(f'Python ·��: {__import__\\(\\\\\"sys\\\\\"\\).executable}'\\)\")",
+      "PowerShell(& \"D:\\\\Miniconda3\\\\envs\\\\fast_api1\\\\python.exe\" -c \"import fastapi, sys; print\\('FastAPI version:', fastapi.__version__\\); print\\('Python path:', sys.executable\\)\")"
+    ]
+  }
+}
