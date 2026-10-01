@@ -1,4 +1,4 @@
-# ORM基础配置
+# ORM基础配置:操作数据库,对象关系映射
 from tortoise.contrib.fastapi import register_tortoise
 from typing import Dict
 from fastapi import FastAPI
@@ -14,7 +14,7 @@ TORTOISE_ORM: Dict = {
         # 生产环境示例：PostgreSQL
         # "default": "postgres://user:password@localhost:5432/dbname",
         # 生产环境示例：MySQL
-        "default": "mysql://root:123456@192.168.31.152:3306/fastapi_db",
+        "default": "mysql://root:123456@127.0.0.1:3306/fastapi_db",
     },
     "apps": {
         "models": {
@@ -34,7 +34,7 @@ TORTOISE_ORM: Dict = {
 
 register_tortoise(app,
                   config=TORTOISE_ORM,
-                  generate_schemas=True,  # 开发环境自动生成表结构
+                  generate_schemas=False,  # 开发环境自动生成表结构
                   add_exception_handlers=True  # 添加默认异常处理
                   )
 

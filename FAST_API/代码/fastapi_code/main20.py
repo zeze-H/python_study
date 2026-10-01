@@ -14,7 +14,7 @@ TORTOISE_ORM: Dict = {
         # 生产环境示例：PostgreSQL
         # "default": "postgres://user:password@localhost:5432/dbname",
         # 生产环境示例：MySQL
-        "default": "mysql://root:123456@192.168.31.152:3306/fastapi_db2",
+        "default": "mysql://root:123456@127.0.0.1:3306/fastapi_db2",
     },
     "apps": {
         "models": {

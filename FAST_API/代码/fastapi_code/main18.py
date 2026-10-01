@@ -1,4 +1,4 @@
-# 其响应
+# 其他响应
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
@@ -20,7 +20,7 @@ async def get_string2():
 async def get_string3():
     return '<html><h1>Hello</h1></html>'
 
-
+#重定向
 @app.get('/redirect1')
 async def get_redirect1():
     return RedirectResponse(url='/string1')

@@ -20,6 +20,6 @@ class User(Model):
 aerich init -t main19.TORTOISE_ORM   # 初始化
 aerich init-db  # 创建迁移脚本
 
-aerich migrate --name "注释"    # 迁移
+aerich migrate --name "注释"    # 迁移/生成sql
 aerich upgrade  # 同步迁移
 '''
